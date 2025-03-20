@@ -1,0 +1,14 @@
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.AssemblyInfoInputs.cache
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.AssemblyInfo.cs
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.csproj.CoreCompileInputs.cache
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\s30844_net01.exe
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\s30844_net01.deps.json
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\s30844_net01.runtimeconfig.json
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\s30844_net01.dll
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\s30844_net01.pdb
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.dll
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\refint\s30844_net01.dll
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.pdb
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.genruntimeconfig.cache
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\ref\s30844_net01.dll
