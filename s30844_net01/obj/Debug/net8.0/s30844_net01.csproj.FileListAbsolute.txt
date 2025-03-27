@@ -12,3 +12,5 @@ C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\refint\s3
 C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.pdb
 C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.genruntimeconfig.cache
 C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\ref\s30844_net01.dll
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\bin\Debug\net8.0\input.txt
+C:\Users\Home\RiderProjects\s30844_net01\s30844_net01\obj\Debug\net8.0\s30844_net01.sourcelink.json

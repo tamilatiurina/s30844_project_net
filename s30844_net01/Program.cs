@@ -1,6 +1,6 @@
 ﻿using s30844_net01;
 
-var manager = new DeviceManager("C:\\Users\\Home\\RiderProjects\\s30844_net01\\s30844_net01\\input.txt");
+var manager = new DeviceManager("input.txt");
 manager.readFile();
 
 Console.WriteLine("Initial devices from .txt");
