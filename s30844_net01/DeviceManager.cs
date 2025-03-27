@@ -79,7 +79,14 @@ public class DeviceManager
 
     public void AddDevice(Device device)
     {
+        if (devices.Any(d => d.Id == device.Id))
+        {
+            Console.WriteLine($"Error: A device with ID '{device.Id}' already exists");
+            return;
+        }
+
         devices.Add(device);
+        SaveData();
     }
 
     public void RemoveDevice(Device device)
@@ -87,56 +94,36 @@ public class DeviceManager
         devices.Remove(device);
     }
 
-    public void EditDevice(object boxedDevice)//don't edit id and tutnOn
+    public void EditDevice(string deviceId, string newName, int? newBatteryPercentage, string newOS, string newIp, string newNetwork)//don't edit id and tutnOn
     {
-        Device device = (Device)boxedDevice;
-        
-        Console.Write("Enter new name (or press Enter to keep current): ");
-        string NewName = Console.ReadLine();
-        if (!string.IsNullOrEmpty(NewName))
+        Device device = devices.FirstOrDefault(d => d.Id == deviceId);
+    
+        if (device == null)
         {
-            device.Name = NewName;
+            Console.WriteLine("Device not found");
+            return;
         }
         
-        
-        if (boxedDevice is Smartwatch)
+        if (!string.IsNullOrEmpty(newName))
         {
-            Smartwatch smartwatch = (Smartwatch)boxedDevice;
-            Console.Write("Enter new battery percentage (0-100): ");
-            string batteryInput = Console.ReadLine();
-            if (int.TryParse(batteryInput, out int newBatteryPercentage))
-            {
-                smartwatch.BatteryPercentage = newBatteryPercentage;
-            }
+            device.Name = newName;
         }
         
-        if (boxedDevice is PersonalComputer)
+        if (device is Smartwatch smartwatch && newBatteryPercentage.HasValue)
         {
-            PersonalComputer computer = (PersonalComputer)boxedDevice;
-            Console.Write("Enter new OS: ");
-            string osInput = Console.ReadLine();
-            if (!string.IsNullOrEmpty(osInput))
-            {
-                computer.OS = osInput;
-            }
+            smartwatch.BatteryPercentage = newBatteryPercentage.Value;
         }
-
-        if (boxedDevice is EmbeddedDevice)
+        else if (device is PersonalComputer computer && !string.IsNullOrEmpty(newOS))
         {
-            EmbeddedDevice ed = (EmbeddedDevice)boxedDevice;
-            Console.Write("Enter new IP: ");
-            string ipInput = Console.ReadLine();
-            if (!string.IsNullOrEmpty(ipInput))
-            {
-                ed._ipAddress = ipInput;
-            }
-            Console.Write("Enter new network: ");
-            string netInput = Console.ReadLine();
-            if (!string.IsNullOrEmpty(netInput))
-            {
-                ed.Network = netInput;
-            }
+            computer.OS = newOS;
         }
+        else if (device is EmbeddedDevice ed)
+        {
+            if (!string.IsNullOrEmpty(newIp)) ed._ipAddress = newIp;
+            if (!string.IsNullOrEmpty(newNetwork)) ed.Network = newNetwork;
+        }
+        
+        SaveData();
     }
 
     public void TurnOnDevice(object boxedDevice)
@@ -246,5 +233,10 @@ public class DeviceManager
         }
 
         return true;
+    }
+    
+    public List<Device> GetDevices()
+    {
+        return devices;
     }
 }
