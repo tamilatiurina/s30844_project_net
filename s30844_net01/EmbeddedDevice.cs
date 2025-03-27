@@ -40,7 +40,7 @@ public class EmbeddedDevice : Device
         }
     }
     
-    private bool IsValidIPAddress(string ip)
+    public bool IsValidIPAddress(string ip)
     {
         string pattern = @"^(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\."
                          + @"(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\."

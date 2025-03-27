@@ -38,8 +38,7 @@ public class Smartwatch() : Device, IPowerNotifier
 
 public class EmptyBatteryException : Exception
 {
-    public EmptyBatteryException(string emptyBatteryPercentage)
+    public EmptyBatteryException(string message) : base(message)
     {
-        throw new NotImplementedException();
     }
 }

@@ -6,13 +6,18 @@ manager.readFile();
 Console.WriteLine("Initial devices from .txt");
 manager.ShowAllDevices();
 
-var sw1 = new Smartwatch();
-sw1.Id = "SW100";
-sw1.Name = "something";
-sw1.IsTurnedOn = true;
-sw1.BatteryPercentage = 57;
+var ed1 = new EmbeddedDevice();
+ed1.Id = "ED1";
+ed1.Name = "something2";
+ed1.IsTurnedOn = false;
+ed1._ipAddress = "4";
+ed1.Network = "MD Ltd. correct";
 
-manager.AddDevice(sw1);
+manager.AddDevice(ed1);
+
+manager.ShowAllDevices();
+/*
+manager.TurnOnDevice(sw1);
 
 manager.TurnOffDevice(sw1);
 

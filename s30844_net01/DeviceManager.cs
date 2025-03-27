@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace s30844_net01;
 
@@ -84,6 +85,15 @@ public class DeviceManager
             Console.WriteLine($"Error: A device with ID '{device.Id}' already exists");
             return;
         }
+        
+        if (device is EmbeddedDevice embeddedDevice)
+        {
+            if (!IsValidIPAddress(embeddedDevice.IP))
+            {
+                Console.WriteLine($"Error: Invalid IP address '{embeddedDevice.IP}' for device {device.Id}");
+                return;
+            }
+        }
 
         devices.Add(device);
         SaveData();
@@ -131,13 +141,14 @@ public class DeviceManager
         if (IsExistDevice(boxedDevice))
         {
             Device device = (Device)boxedDevice;
-            device.IsTurnedOn = true;
+            device.TurnOn();
         }
         else
         {
             Console.WriteLine("Device not found");
         }
-
+        
+        SaveData();
     }
     
     public void TurnOffDevice(object boxedDevice)
@@ -150,7 +161,8 @@ public class DeviceManager
         {
             Console.WriteLine("Device not found");
         }
-    
+        
+        SaveData();
     }
     
     public  void ShowAllDevices()
@@ -239,4 +251,15 @@ public class DeviceManager
     {
         return devices;
     }
+    
+    public bool IsValidIPAddress(string ip)
+    {
+        string pattern = @"^(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\."
+                         + @"(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\."
+                         + @"(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\."
+                         + @"(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)$";
+
+        return Regex.IsMatch(ip, pattern);
+    }
 }
+
